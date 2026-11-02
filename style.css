@@ -1,0 +1,139 @@
+/* ===== Cores principais ===== */
+:root {
+  --azul: #4f8cff;
+  --roxo: #8b5cf6;
+  --fundo: #0d1117;
+  --fundo-card: #161b26;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--fundo) !important;
+}
+
+/* Espaço para a navbar fixa ao rolar para uma seção */
+section, header {
+  scroll-margin-top: 70px;
+}
+
+.bg-body-tertiary {
+  background-color: #111621 !important;
+}
+
+/* ===== Texto com gradiente azul -> roxo ===== */
+.text-gradient {
+  background: linear-gradient(90deg, var(--azul), var(--roxo));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ===== Navbar ===== */
+#navbar {
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+#navbar.scrolled {
+  background-color: rgba(13, 17, 23, 0.95);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+}
+
+.nav-link {
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: var(--azul) !important;
+}
+
+/* No celular, o menu aberto precisa de fundo */
+@media (max-width: 991px) {
+  #navbar .navbar-collapse {
+    background-color: rgba(13, 17, 23, 0.97);
+    padding: 1rem;
+    margin-top: 0.8rem;
+    border-radius: 12px;
+  }
+}
+
+/* ===== Início ===== */
+.hero {
+  min-height: 100vh;
+  padding-top: 90px;
+  background: radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.25), transparent 45%),
+              radial-gradient(circle at 10% 80%, rgba(79, 140, 255, 0.2), transparent 45%);
+}
+
+.hero-img {
+  border: 2px solid rgba(139, 92, 246, 0.5);
+  animation: flutuar 4s ease-in-out infinite;
+}
+
+@keyframes flutuar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ===== Botões ===== */
+.btn-primary {
+  background: linear-gradient(90deg, var(--azul), var(--roxo));
+  border: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(139, 92, 246, 0.45);
+}
+
+/* ===== Cards ===== */
+.card-custom {
+  background-color: var(--fundo-card);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+.card-custom:hover {
+  transform: translateY(-8px);
+  border-color: var(--azul);
+  box-shadow: 0 10px 25px rgba(79, 140, 255, 0.2);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+/* O formulário não deve "pular" ao passar o mouse */
+form.card-custom:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* ===== Formulário ===== */
+.form-control {
+  background-color: #0d1117;
+  border: 1px solid #2d3548;
+}
+
+.form-control:focus {
+  border-color: var(--roxo);
+  box-shadow: 0 0 0 0.2rem rgba(139, 92, 246, 0.25);
+}
+
+/* ===== Animação ao rolar a página ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
